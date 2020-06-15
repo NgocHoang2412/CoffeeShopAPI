@@ -6,9 +6,9 @@ const app = express();
 
 var corsOptions = {
   //origin: "http://localhost:8081",
-  origin: "*",
-  //Headers: "Authorization, Origin, X-Requested-With, Content-Type, Accept",
-  //Methods: "GET,POST"
+  origin: true,
+  Headers: "Authorization, Origin, X-Requested-With, Content-Type, Accept",
+  Methods: "GET,POST"
 };
 app.use(cors(corsOptions));
 
@@ -33,13 +33,14 @@ db.mongoose
   });
 
 // simple route
-app.get("/", (req, res) => {
+app.get("/",cors(corsOptions), (req, res) => {
   res.json({ message: "Welcome to application." });
 });
 
 require("./app/routes/auth.routes")(app);
 require("./app/routes/item.routes")(app);
 require("./app/routes/user.routes")(app);
+require("./app/routes/category.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
