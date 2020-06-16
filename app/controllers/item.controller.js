@@ -13,6 +13,7 @@ exports.create = (req,res) => {
         name : req.body.name,
         imageURL : req.body.imageURL,
         defaultPrice : req.body.defaultPrice,
+        categoryID : req.body.categoryID,
         unit : req.body.unit,
         size : req.body.size,
         description : req.body.description
