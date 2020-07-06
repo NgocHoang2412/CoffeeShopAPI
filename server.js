@@ -34,7 +34,7 @@ db.mongoose
 
 // simple route
 app.get("/",cors(corsOptions), (req, res) => {
-  res.json({ message: "Welcome to application." });
+  res.json({ message: "Welcome to application from MongoDB." });
 });
 
 require("./app/routes/auth.routes")(app);
